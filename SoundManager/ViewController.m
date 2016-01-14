@@ -7,8 +7,12 @@
 //
 
 #import "ViewController.h"
+#import "APIManager.h"
 
 @interface ViewController ()
+{
+    NSMutableArray *arrayOfSounds;
+}
 
 @end
 
@@ -16,7 +20,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    APIManager *sApiInstance = [APIManager sharedManager];
+    
+    if ([arrayOfSounds count] != 0)
+    {
+        NSLog(@"Sounds already populated");
+    }
+    else
+    {
+        arrayOfSounds = [sApiInstance populateSoundsArray];
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {

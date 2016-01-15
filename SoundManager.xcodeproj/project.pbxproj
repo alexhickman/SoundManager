@@ -19,6 +19,7 @@
 		88F29C2A1C4842E5006DBEC2 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F29C291C4842E5006DBEC2 /* Constants.m */; };
 		88F29C2D1C4843C3006DBEC2 /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F29C2C1C4843C3006DBEC2 /* APIManager.m */; };
 		88F29C311C484484006DBEC2 /* Sounds.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F29C301C484484006DBEC2 /* Sounds.m */; };
+		88F29C391C484BC4006DBEC2 /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F29C381C484BC4006DBEC2 /* SoundManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,8 @@
 		88F29C2C1C4843C3006DBEC2 /* APIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIManager.m; sourceTree = "<group>"; };
 		88F29C2F1C484484006DBEC2 /* Sounds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sounds.h; sourceTree = "<group>"; };
 		88F29C301C484484006DBEC2 /* Sounds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sounds.m; sourceTree = "<group>"; };
+		88F29C371C484BC4006DBEC2 /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundManager.h; sourceTree = "<group>"; };
+		88F29C381C484BC4006DBEC2 /* SoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundManager.m; sourceTree = "<group>"; };
 		AED3E1D7512EE5952D429468 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		DDF2F7D3790D447C2CE63ECD /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -127,6 +130,8 @@
 			children = (
 				88F29BF81C483D6F006DBEC2 /* AppDelegate.h */,
 				88F29BF91C483D6F006DBEC2 /* AppDelegate.m */,
+				88F29C371C484BC4006DBEC2 /* SoundManager.h */,
+				88F29C381C484BC4006DBEC2 /* SoundManager.m */,
 				88F29C2F1C484484006DBEC2 /* Sounds.h */,
 				88F29C301C484484006DBEC2 /* Sounds.m */,
 				88F29C2E1C4843CC006DBEC2 /* API */,
@@ -384,6 +389,7 @@
 				88F29BF71C483D6F006DBEC2 /* main.m in Sources */,
 				88F29C2A1C4842E5006DBEC2 /* Constants.m in Sources */,
 				88F29C2D1C4843C3006DBEC2 /* APIManager.m in Sources */,
+				88F29C391C484BC4006DBEC2 /* SoundManager.m in Sources */,
 				88F29C311C484484006DBEC2 /* Sounds.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,10 +11,10 @@
 @interface ViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UIPickerView *pickerViewSounds;
-
 @property (weak, nonatomic) IBOutlet UISwitch *switchLoopsProperty;
 @property (weak, nonatomic) IBOutlet UIStepper *stepperLoopProperty;
 @property (weak, nonatomic) IBOutlet UILabel *labelLoop;
+@property (weak, nonatomic) IBOutlet UISlider *sliderRate;
 
 @end
 

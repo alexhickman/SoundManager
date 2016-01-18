@@ -45,6 +45,10 @@
     //setting defaults
     self.stepperLoopProperty.value = 0;
     self.stepperLoopProperty.minimumValue = 0;
+    self.sliderRate.minimumValue = 0.5;
+    self.sliderRate.maximumValue = 2.0;
+    self.sliderRate.value = 1.0;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -134,6 +138,17 @@
             sSoundManagerInstance.numberOfLoops = self.stepperLoopProperty.value - 1;
         }
     }
+}
+
+- (IBAction)sliderRate:(id)sender
+{
+    sSoundManagerInstance.rate = self.sliderRate.value;
+}
+
+- (IBAction)buttonRateReset:(id)sender
+{
+    [self.sliderRate setValue:1.0 animated:YES];
+    sSoundManagerInstance.rate = 1.0;
 }
 
 @end

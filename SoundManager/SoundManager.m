@@ -31,7 +31,7 @@ static SoundManager *sMySoundManager;
         self.pan = 0.0;
         self.volume = 1.0;
         self.rate = 1.0;
-        self.enableRate = NO;
+        self.enableRate = YES;
     }
     return self;
 }
@@ -39,12 +39,13 @@ static SoundManager *sMySoundManager;
 - (void)initWithData:(NSData *)soundData
 {
     self.player = [[AVAudioPlayer alloc] initWithData:soundData error:nil];
+    self.player.enableRate = YES;
     [self.player prepareToPlay];
 }
 
 - (void)play
 {
-    
+    [self.player setRate:self.rate];
     [self.player setNumberOfLoops:self.numberOfLoops];
     [self.player play];
 }

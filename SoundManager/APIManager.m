@@ -24,6 +24,46 @@ static APIManager *sMyApi;
     return sMyApi;
 }
 
+- (void)retrieveSounds:(void (^)(NSArray<Sounds *> *sounds))completion {
+    PFQuery *query = [PFQuery queryWithClassName:@"Sounds"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error)
+        {
+            NSLog(@"Successfully retrieved %lu sounds", (unsigned long)objects.count);
+            
+            NSUInteger __block completeCounter = 0;
+            NSMutableArray *mutableArray = [NSMutableArray new];
+            for (PFObject *sound in objects)
+            {
+                NSString *fileName = sound[@"fileName"];
+                PFFile *soundFile = sound[@"audioFile"];
+                [soundFile getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+                    if (error)
+                    {
+                        NSLog(@"Error: %@ %@", error, [error userInfo]);
+                    }
+                    else
+                    {
+                        NSData *soundData = data;
+                        Sounds *newSound = [Sounds makeSoundWith:fileName andSound:soundData];
+                        [mutableArray addObject:newSound];
+                    }
+                    completeCounter++;
+
+                    if (completeCounter == objects.count) {
+                        completion(mutableArray);
+                    }
+                }];
+            }
+        }
+        else
+        {
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+}
+
+/* replaced with retrieveSounds method
 - (NSMutableArray *)populateSoundsArray
 {
     NSMutableArray *arrayOfSounds = [[NSMutableArray alloc]init];
@@ -59,5 +99,6 @@ static APIManager *sMyApi;
     
     return arrayOfSounds;
 }
+*/
 
 @end

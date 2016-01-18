@@ -22,6 +22,20 @@ static SoundManager *sMySoundManager;
     return sMySoundManager;
 }
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self)
+    {
+        self.numberOfLoops = 0;
+        self.pan = 0.0;
+        self.volume = 1.0;
+        self.rate = 1.0;
+        self.enableRate = NO;
+    }
+    return self;
+}
+
 - (void)initWithData:(NSData *)soundData
 {
     self.player = [[AVAudioPlayer alloc] initWithData:soundData error:nil];
@@ -30,6 +44,7 @@ static SoundManager *sMySoundManager;
 
 - (void)play
 {
+    
     [self.player setNumberOfLoops:self.numberOfLoops];
     [self.player play];
 }
@@ -45,7 +60,7 @@ static SoundManager *sMySoundManager;
     {
         [self.player pause];
     }
-    else if (self.player.prepareToPlay)
+    else
     {
     [self.player play];
     }

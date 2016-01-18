@@ -13,7 +13,7 @@
 
 @interface ViewController ()
 {
-    NSMutableArray *arrayOfSounds;
+    NSArray *arrayOfSounds;
     SoundManager *sSoundManagerInstance;
     NSData *selectedSoundData;
 }
@@ -33,11 +33,14 @@
     }
     else
     {
-        arrayOfSounds = [sApiInstance populateSoundsArray];
+        [sApiInstance retrieveSounds:^(NSArray<Sounds *> *sounds) {
+            arrayOfSounds = [sounds sortedArrayUsingComparator:^(Sounds *sound1, Sounds *sound2) {
+                return [sound1.fileName compare:sound2.fileName];
+            }];
+            [self.pickerViewSounds reloadAllComponents];
+            [self.pickerViewSounds selectRow:3 * arrayOfSounds.count inComponent:0 animated:NO];
+        }];
     }
-    
-    //account for download from server delay
-    [self.pickerViewSounds performSelector:@selector(reloadAllComponents) withObject:nil afterDelay:3];
     
     //setting defaults
     self.stepperLoopProperty.value = 0;
@@ -83,11 +86,9 @@
         //default selected value
         selectedSoundData = ((Sounds *)arrayOfSounds[0]).audioFile;
     }
-    else
-    {
-        [sSoundManagerInstance initWithData:selectedSoundData];
-        [sSoundManagerInstance play];
-    }
+
+    [sSoundManagerInstance initWithData:selectedSoundData];
+    [sSoundManagerInstance play];
 }
 
 - (IBAction)buttonPause:(id)sender

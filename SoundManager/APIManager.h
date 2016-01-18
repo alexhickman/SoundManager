@@ -8,9 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+#import "Sounds.h"
+
 @interface APIManager : NSObject
 
 + (APIManager *)sharedManager;
-- (NSMutableArray *)populateSoundsArray;
+//- (NSMutableArray *)populateSoundsArray;
+- (void)retrieveSounds:(void (^)(NSArray<Sounds *> *sounds))completion;
 
 @end

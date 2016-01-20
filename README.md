@@ -7,6 +7,7 @@ Open Terminal
 Type without quotes:
 
 "sudo gem install cocoapods"
+
 -enter password
 
 Type without quotes:
@@ -26,6 +27,7 @@ Type without quotes:
 -In the file that opens on a line above target type
 
 pod 'Parse'
+
 -Save and quit XCode
 
 -In Terminal and still in project folder type without quotes:
@@ -33,4 +35,5 @@ pod 'Parse'
 "pod install"
 
 -When completed quit terminal and launch XCode
+
 -open the workspace file rather than project file. (.xcworkspace rather than .xcodeproject
